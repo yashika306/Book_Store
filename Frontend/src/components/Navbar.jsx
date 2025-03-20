@@ -5,6 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { FaUserAlt, FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import avatarImg from "../assets/avatar.png";
+import { useSelector } from "react-redux";
 
 const navigation = [
     {name: "Dashboard", href:"/user-dashboard"},
@@ -17,6 +18,8 @@ const Navbar = () => {
     const currentUser = true;
     const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
     console.log(isDropdownOpen);
+    const cartItems = useSelector(state => state.cart.cartItems);
+    console.log(cartItems);
     const handleLogOut = () => {
     }
   return (
@@ -77,7 +80,9 @@ const Navbar = () => {
  
             <Link to="/cart"className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm">
                <MdOutlineShoppingCart  className=''/>
-               <span className="text-sm font-semibold sm:ml-1">0</span>
+               {
+                cartItems.length > 0 ? <span className="text-sm font-semibold sm:ml-1">{cartItems.length}</span>  :<span className="text-sm font-semibold sm:ml-1">0</span> 
+               }
             </Link>
             </div>
         
