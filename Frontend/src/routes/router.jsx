@@ -5,8 +5,8 @@ import {
 import App from "../App";
 import Home from "../pages/home/home";
 import CartPage from "../pages/Book/CartPage";
-import Checkout from "../pages/Book/CheckoutPage";
 import CheckoutPage from "../pages/Book/CheckoutPage";
+import SingleBook from "../pages/Book/SingleBook";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +41,10 @@ export const router = createBrowserRouter([
         {
           path:"/checkout",
           element: <CheckoutPage/>,
+        },
+        {
+          path:"/books/:id",
+          element:<SingleBook/>
         },
       ]
     },
